@@ -8,6 +8,7 @@ from datetime import timedelta
 from matplotlib.animation import FuncAnimation, PillowWriter
 from matplotlib import colormaps
 
+# Load the car image
 car_picture = plt.imread('redbull_pixel_art_noBG.png')
 
 # List of F1 countries and USA circuits
@@ -130,8 +131,6 @@ ax.set_xlim(df_merged['x'].min() - padding_x, df_merged['x'].max() + padding_x)
 ax.set_ylim(df_merged['y'].min() - padding_y, df_merged['y'].max() + padding_y)
 
 # Create a color bar to indicate speed
-norm = plt.Normalize(vmin=df_merged['speed'].min(), vmax=df_merged['speed'].max())
-cmap = colormaps.get_cmap('jet')
 sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
 sm.set_array([])
 fig.colorbar(sm, ax=ax, label="Speed (km/h)")
@@ -140,29 +139,38 @@ ax.set_title('Track with speed-indicated segments (heatmap)')
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
 
-# Initialize the list to store the line segments
-lines = []
+# Initialize an empty list to store the line segments
+line, = ax.plot([], [], lw=2)
+
+# Initialize the car image
+car_img = ax.imshow(car_picture, extent=[0, 0, 0, 0], zorder=5)
 
 # Update function for animation
 def update(frame):
     if frame < len(df_merged) - 1:
         # Extract the current and next coordinates
-        x_values = [df_merged.iloc[frame]['x'], df_merged.iloc[frame + 1]['x']]
-        y_values = [df_merged.iloc[frame]['y'], df_merged.iloc[frame + 1]['y']]
+        x_values = df_merged['x'].iloc[:frame+1]
+        y_values = df_merged['y'].iloc[:frame+1]
+
+        # Update the line data
+        line.set_data(x_values, y_values)
 
         # Get the color based on the speed at this frame
         color = cmap(norm(df_merged.iloc[frame]['speed']))
+        line.set_color(color)
 
-        # Plot the current segment
-        line, = ax.plot(x_values, y_values, color=color, lw=2)
-        lines.append(line)  # Store the line to keep it displayed
-    return lines
+        # Update the car position
+        car_x = df_merged.iloc[frame]['x']
+        car_y = df_merged.iloc[frame]['y']
+        car_img.set_extent([car_x - 0.1, car_x + 0.1, car_y - 0.1, car_y + 0.1])
+
+    return line, car_img
 
 # Create the animation and store it in a variable
-anim = FuncAnimation(fig, update, frames=len(df_merged)-1, blit=False, interval=15)
+anim = FuncAnimation(fig, update, frames=len(df_merged)-1, blit=True, interval=15)
 
 # Save the animation as a GIF file
-anim.save('f1_animation_withRBcar.gif', writer=PillowWriter(fps=30))
+anim.save('f1_animation_with_car.gif', writer=PillowWriter(fps=30))
 
 # Show the plot
 plt.show()

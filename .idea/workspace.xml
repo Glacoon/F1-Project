@@ -5,19 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adfd267b-e309-49d6-8f06-36726f4c6ec0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AnimationF1/.idea/AnimationF1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AnimationF1/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AnimationF1/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AnimationF1/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AnimationF1/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AnimationF1/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AnimationF1/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/F1_Animation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/F1_Animation_withCar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/redbull_pixel_art_noBG.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sample.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/f1_animation_with_car.gif" beforeDir="false" afterPath="$PROJECT_DIR$/f1_animation_with_car.gif" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +40,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="scientificProject" />
@@ -98,7 +92,7 @@
       <workItem from="1727476626976" duration="956000" />
       <workItem from="1727706318384" duration="5946000" />
       <workItem from="1728396061665" duration="313000" />
-      <workItem from="1728476753306" duration="313000" />
+      <workItem from="1728476753306" duration="1071000" />
     </task>
     <servers />
   </component>
